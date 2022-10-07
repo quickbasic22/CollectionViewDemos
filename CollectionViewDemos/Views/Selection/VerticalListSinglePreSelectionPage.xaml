@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:data="clr-namespace:CollectionViewDemos.Models"
+             xmlns:viewmodels="clr-namespace:CollectionViewDemos.ViewModels"
+             x:DataType="viewmodels:MonkeysViewModel"
              x:Class="CollectionViewDemos.Views.VerticalListSinglePreSelectionPage"
              Title="Vertical list (single pre-selection)">
 <StackLayout Margin="20">
@@ -10,7 +13,7 @@
                         SelectedItem="{Binding SelectedMonkey}"
                         SelectionChangedCommand="{Binding MonkeySelectionChangedCommand}">
             <CollectionView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="{x:Type data:Monkey}">
                     <Grid Padding="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
